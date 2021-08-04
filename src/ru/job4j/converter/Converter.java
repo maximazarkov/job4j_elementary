@@ -22,5 +22,10 @@ public class Converter {
         passed = expected == out;
         System.out.println(in + " rubles are " + out + " dollar.");
         System.out.println(in + " rubles are " + expected + " euro. Test result : " + passed);
+
+        float a = 1.23f;
+        double b = 4.56f;
+        System.out.printf("%.15f%n", a);
+        System.out.printf("%.15f%n", b);
     }
 }
