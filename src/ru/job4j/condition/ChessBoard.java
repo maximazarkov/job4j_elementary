@@ -15,6 +15,8 @@ public class ChessBoard {
         if (((x1 == y1) && (x2 == y2))) {
             rsl = Math.abs(x2 - x1);
             rsl = rsl == 0 ? Math.abs(y2 - y1) : rsl;
+            String a;
+//            a.length()
         }
 
         return rsl;
