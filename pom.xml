@@ -9,7 +9,7 @@
     <!-- укажем наш сайт - группировка библиотек, например, Job4j.ru выпускает несколько продуктов и мы хотим, чтобы эти проекты все лежали в одной папке ru.job4j. В java обычно используют имя домена, хотя имяможет быть любым. -->
 	<groupId>ru.job4j</groupId>
 	<!-- в артефакте указывают название проекта, например, java-a-to-z или junior -->
-	<!-- artifactId - уникальный ключ нашей библиоткив. Уникальность должна обеспечиваться сочетанием двух ключей groupId и artifackId. -->
+	<!-- artifactId - уникальный ключ нашей библиоткив. Уникальность должна обеспечиваться сочетанием двух ключей groupId и artifactId. -->
     <artifactId>job4j_elementary</artifactId>
 	<!-- здесь мы указываем, как мы собираем проект, например в jar, ear, war
 	или указать pom, если данный pom.xml является родителем для других модулей -->
@@ -19,7 +19,7 @@
 	<!-- имя проекта -->
     <name>job4j_elementary</name>
 	<!-- доменное имя проекта -->
-	<!-- сочетание goupId + artifactid + version - позволяют найти нужную библиотеку и загрузить ее в проект. -->
+	<!-- сочетание groupId + artifactId + version - позволяют найти нужную библиотеку и загрузить ее в проект. -->
     <url>http://job4j.ru</url>
 
 	<!-- настройка окружения пакета -->
@@ -42,14 +42,14 @@
 
 	<!-- подключим сторонние библиотеки, которые будут нужны в проекте -->
     <dependencies>
-		<!-- библиотека для тестирования -->
+        <!-- библиотека для тестирования -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
-		<!-- библиотека для тестирования -->
+        <!-- библиотека для тестирования -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -68,84 +68,80 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.32</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+
+
     </dependencies>
 
 	<!-- подключитм плагины для maven -->
 	<!-- Петр обещал про плагины снять отдельное видео -->
 	<build>
-        <plugins>
-            <!-- плагин JaCoCo -->
-            <plugin>
-                <!-- версия плагина -->
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.4</version>
-                <executions>
-                    <!-- настройка запуска задачи анализа кода на покрытие -->
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <!-- настройка запуска задачи проверки кода после запуска команды mvn test. -->
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- плагины maven -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                    <showWarnings>true</showWarnings>
-                    <showDeprecation>true</showDeprecation>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.ow2.asm</groupId>
-                        <artifactId>asm</artifactId>
-                        <version>6.2</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+        <pluginManagement>
+            <plugins>
+                <!-- плагин JaCoCo -->
+                <plugin>
+                    <!-- версия плагина -->
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.4</version>
+                    <executions>
+                        <!-- настройка запуска задачи анализа кода на покрытие -->
+                        <execution>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <!-- настройка запуска задачи проверки кода после запуска команды mvn test. -->
+                        <execution>
+                            <id>report</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- плагины maven -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <source>16</source>
+                        <target>16</target>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm</artifactId>
+                            <version>6.2</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
 
-			<!-- плагин для сборки javadoc -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0</version>
-            </plugin>
-			<!-- плагин для checkstyle -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.17</version>
-				<executions>
-					<execution>
-						<id>validate</id>
-						<phase>validate</phase>
-						<configuration>
-							<configLocation>checkstyle.xml</configLocation>
-							<encoding>UTF-8</encoding>
-							<consoleOutput>true</consoleOutput>
-							<failsOnError>true</failsOnError>
-							<includeTestSourceDirectory>true</includeTestSourceDirectory>
-						</configuration>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+			    <!-- плагин для сборки javadoc -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+			    <!-- плагин для checkstyle -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.1.2</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>8.30</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
 
