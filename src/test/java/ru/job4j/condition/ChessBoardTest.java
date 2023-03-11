@@ -1,7 +1,7 @@
 package ru.job4j.condition;
 
-import org.junit.Test;
-import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
 public class ChessBoardTest {
 
@@ -12,8 +12,7 @@ public class ChessBoardTest {
         int x2 = 0;
         int y2 = 6;
         int result = ChessBoard.wayRook(x1, y1, x2, y2);
-        int expected = 6;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(6);
     }
 
     @Test
@@ -23,8 +22,7 @@ public class ChessBoardTest {
         int x2 = 5;
         int y2 = 0;
         int result = ChessBoard.wayRook(x1, y1, x2, y2);
-        int expected = 5;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(5);
     }
 
     @Test
@@ -34,8 +32,7 @@ public class ChessBoardTest {
         int x2 = 5;
         int y2 = 6;
         int result = ChessBoard.wayRook(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -45,8 +42,7 @@ public class ChessBoardTest {
         int x2 = 1;
         int y2 = 2;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 5;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(5);
     }
 
     @Test
@@ -56,8 +52,7 @@ public class ChessBoardTest {
         int x2 = 0;
         int y2 = 7;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 7;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(7);
     }
 
     @Test
@@ -67,8 +62,7 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -78,8 +72,7 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -89,8 +82,7 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -100,8 +92,7 @@ public class ChessBoardTest {
         int x2 = -1;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -111,8 +102,7 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = -1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -122,8 +112,7 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -133,8 +122,7 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -144,8 +132,7 @@ public class ChessBoardTest {
         int x2 = 10;
         int y2 = 1;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 
     @Test
@@ -155,7 +142,6 @@ public class ChessBoardTest {
         int x2 = 4;
         int y2 = 10;
         int result = ChessBoard.wayBishop(x1, y1, x2, y2);
-        int expected = 0;
-        Assert.assertEquals(expected, result);
+        assertThat(result).isEqualTo(0);
     }
 }
