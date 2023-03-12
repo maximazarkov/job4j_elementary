@@ -7,18 +7,21 @@ public class JavaNameValidator {
      * @return - возвращает true, если символ валидный
      */
     public static boolean isNameValid(String name) {
-        boolean result = false;
-        if (!name.isEmpty()
-                && !Character.isUpperCase(name.codePointAt(0))
-                && !Character.isDigit(name.codePointAt(0))
+
+        boolean result = true;
+        if (name.isEmpty()
+                || Character.isUpperCase(name.codePointAt(0))
+                || Character.isDigit(name.codePointAt(0))
         ) {
-            for (int i = 0; i < name.length(); i++) {
+            result = false;
+        } else {
+            for (int i = 1; i < name.length(); i++) {
                 int code = name.codePointAt(i);
-                result = isSpecialSymbol(code)
-                        || isLowerLatinLetter(code)
-                        || isUpperLatinLetter(code)
-                        || Character.isDigit(code);
-                if (result) {
+                result = !isSpecialSymbol(code)
+                        || !isLowerLatinLetter(code)
+                        || !isUpperLatinLetter(code)
+                        || !Character.isDigit(code);
+                if (!result) {
                     break;
                 }
             }
